@@ -10,7 +10,7 @@ function ret = transform(imagePath)
 
 	for w = 1:blocks:info.Width %cols
 		for h = 1:blocks:info.Height %fils
-			ret_img(h:blocks,w:blocks) = MNAidct2(img(h:blocks,w:blocks));
+			ret_img(h:h+blocks-1,w:w+blocks-1) = MNAidct2(img(h:h+blocks-1,w:w+blocks-1));
 		end
 	end
 	
