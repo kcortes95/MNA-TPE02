@@ -1,5 +1,5 @@
 %esto solo funciona si el ancho y el alto son multiplos de 8!
-function ret = transform(imagePath)
+function ret = antitransform(imagePath)
 
 	img = imread(imagePath);
 	%imshow(img);

@@ -31,17 +31,21 @@ Para poder utilizar ciertas funciones para tratamiento de imágenes, dct2 e idct
 pkg install -forge control
 pkg install -forge signal
 pkg install -forge image
+pkg install -forge communications
 ```
 Cada vez que utilicemos una función de éstas, se debe cargar previamente
 ```sh
 pkg load control
 pkg load signal
 pkg load image
+pkg load communications
 ```
-Para cargar nuestras funciones en Octave
+Para cargar nuestras funciones en Octave y llamar a la función
 ```sh
 addpath("~/Escritorio/MNA-2016")
+compression("~/Escritorio/MNA-2016/nasa.tif",""~/Escritorio")
 ```
+
 #### Links importantes
   - https://www.mathworks.com/help/images/ref/dct2.html
   - https://www.mathworks.com/help/images/ref/dct2.html
