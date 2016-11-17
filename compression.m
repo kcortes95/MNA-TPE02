@@ -5,35 +5,40 @@ function ret = compression(imgpath,destfolder)
 	pkg load image
 	pkg load control
 	pkg load signal
-	pkg load communications
+	%pkg load communications
 
 	img = imread(imgpath);
 	F = dct2(img); %transformamos con el default
-	imwrite(F*0.01,strcat(destfolder,"/F001-imagen.tif"));
-	imwrite(F,strcat(destfolder,"/F-imagen.tif"));	
+	imwrite(F*0.01,strcat(destfolder,"/F001-imagen.bmp"));
+  
+  imwrite(F,strcat(destfolder,"/F-imagen.bmp"));	
 	ff = idct2(F);
-	imwrite(ff/255,strcat(destfolder,"/ff255-imagen.tif"));
-	imwrite(ff,strcat(destfolder,"/ff-imagen.tif"));
+  
+	imwrite(ff/255,strcat(destfolder,"/ff255-imagen.bmp"));
+	imwrite(ff,strcat(destfolder,"/ff-imagen.bmp"));
 
 	[r,c] = size(img);
 	DF =  zeros(r,c);
 	DFF = DF;
 	N = 8; %lo hice consistente a lo que tenia yo!! 
-
+  "Antes del doble ciclo"
 	for i = 1 : N : r
 		for j = 1 : N : c
 			f = img(i:i+N-1,j:j+N-1);
-			df = dct2(f);
-			DF(i:i+N-1,j:j+N-1) = df;
-			dff = idct2(df);
-			DFF(i:i+N-1,j:j+N-1) = dff;
+      f
+      df2 = MNAdct2(f)
+			df1 = dct2(f)
+      
 
+			DF(i:i+N-1,j:j+N-1) = df1;
+			dff = idct2(df1);
+			DFF(i:i+N-1,j:j+N-1) = dff;
 		end	
 	end
-
-	imwrite(DF/255,strcat(destfolder,'/DF255-imagen.tif'));	
-	imwrite(DF,strcat(destfolder,'/DF-imagen.tif'));	
-	imwrite(DFF,strcat(destfolder,'/DFF-imagen.tif'));
-	imwrite(DFF/255,strcat(destfolder,'/DFF255-imagen.tif'));
+  
+	imwrite(DF/255,strcat(destfolder,'/DF255-imagen.bmp'));	
+	imwrite(DF,strcat(destfolder,'/DF-imagen.bmp'));	
+	imwrite(DFF,strcat(destfolder,'/DFF-imagen.bmp'));
+	imwrite(DFF/255,strcat(destfolder,'/DFF255-imagen.bmp'));
 
 end

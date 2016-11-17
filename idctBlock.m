@@ -1,4 +1,4 @@
-function ret = dctBlock(matrix, M, N, m, n)
+function ret = idctBlock(matrix, M, N, m, n)
 
 	to_ret = 0;
 

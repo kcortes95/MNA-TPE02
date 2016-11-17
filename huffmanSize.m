@@ -1,4 +1,4 @@
-function lencomp=complen(x)
+function ret=huffmanSize(x)
   [m,n]=size(x);
   x=reshape(x,m*n,1);
   x = x-min(x);
@@ -20,4 +20,5 @@ function lencomp=complen(x)
   for k=1:length(symbols)
     lencomp=lencomp+freq(k)*length(dict{k});
   end
+    
 end
